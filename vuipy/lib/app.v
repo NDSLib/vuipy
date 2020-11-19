@@ -44,22 +44,38 @@ pub fn run(mut app App){
  	set_title(mut app)
 }
 
-pub fn add_widget(mut app App, widget ui.Widget){
-	println("add_widget!! by Vlang")
+//pub fn add_widget(mut app App, widget ui.Widget){
+pub fn add_widget(mut app App, widget &ui.Label){
+	println("add_widget!! by Vlang ")
 	app.window.children << widget
 }
 
 pub fn label(text string) &ui.Label{
 	println("vlang label $text")
 	mut label := ui.label({
-		text:"heyy"
+		text: "$text"
 	})
 	return label
+}
+
+pub fn test_label(mut app App){
+	mut label := ui.label({
+		text:"heyy"
+	})
+	app.window.children << label
 }
 
 
 pub fn set_title(mut app App){
 	app.window.set_title("unkoooo")
+}
+
+pub type TestCall = fn(func voidptr)
+pub fn test_p_call(func TestCall){
+	println("test p call")
+	if func != voidptr(0){
+		func(func)
+	}
 }
 
 

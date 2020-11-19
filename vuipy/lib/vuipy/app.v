@@ -49,12 +49,19 @@ pub fn add_widget(mut app App, widget ui.Widget){
 	app.window.children << widget
 }
 
-pub fn label(text string) &ui.Label{
+pub fn label(mut text string) &ui.Label{
 	println("vlang label $text")
 	label := ui.label({
 		text:"heyy"
 	})
 	return label
+}
+
+pub fn test_label(mut app App){
+	label := ui.label({
+		text: "test label"
+	})
+	app.window.children << label
 }
 
 
